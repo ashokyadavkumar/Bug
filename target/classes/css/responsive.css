@@ -1,0 +1,27 @@
+@media (min-width:768px){
+.custombox{width:20%;padding-left:15px;padding-right:15px}
+}
+
+@media only screen and (max-width:567px){
+    header .top-strip{
+        float:left;
+    }
+    .common-left{
+        width:100%;
+    }
+    .common-left ul li{
+        width:100%;
+        float: none;
+        text-align: center;
+        margin:0 auto;
+        display: table;
+    }
+}
+
+@media only screen and (min-width:568px) and (max-width:767px){
+          
+}
+
+@media only screen and (min-width:768px) and (max-width:1280px){
+        
+}
