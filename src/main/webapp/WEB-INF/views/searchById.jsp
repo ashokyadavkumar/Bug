@@ -22,9 +22,9 @@
 <div class="custom-breadcrumbs">
   <div class="container">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item active"><a href="#">Home</a></li>
+			<!-- <li class="breadcrumb-item active"><a href="#">Home</a></li> -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
-				<ul class="btns float-right">
+				<%-- <ul class="btns float-right">
 					<li>
 						<form action="logout" method="post">
 							<input type="hidden" name="${_csrf.parameterName}"
@@ -32,7 +32,7 @@
 								class="logout-btn">
 						</form>
 					</li>
-				</ul>
+				</ul> --%>
 			</div>
 		</ol>
 	</div>
@@ -47,7 +47,7 @@
 								<%@include file="/WEB-INF/views/sideBarManu.jsp"%></div>
 						</div>
 					</div>
-					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7" style="border: 1px solid;background-color: #E0FFFF;margin-left: -16px;">
 						<div class="login-content">
 							<s:form class="create-account" action="searchById" id="search"
 								name="search" method="post" ondrop="return false"
@@ -55,14 +55,14 @@
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" />
 								<div class="row">
-									<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-										<h2>Search User By id</h2>
+									<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 23%;margin-left: 17%;">
+										<span style="font-size: 30px;font-weight: bold;color:#96358C">Search User By id</span>
 									</div>
 									<div
 										class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-										<label>Enter User Id<sup>*</sup></label>
+										<label style="margin-left: 49%;margin-top: 7%;">Enter User Id<sup>*</sup></label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="refUserRoleId" name="refUserRoleId"
+											<input style="margin-left: 108%; margin-top: -13%;"type="text" class="form-control" id="refUserRoleId" name="refUserRoleId"
 								value="${bugUser.refUserRoleId.roleCode}" data-ignorepaste=""
 								autocomplete="off" maxlength="256">
 										</div>
@@ -70,7 +70,7 @@
 								</div>
 
 								<div class="second-tab-btn float-right">
-									<input type="submit" id="btnSubmited" class="bluebotton"
+									<input style="margin-left: -144%;"type="submit" id="btnSubmited" class="bluebotton"
 										value="search" onclick="return loginFunction1(this.form);" />
 								</div>
 							</s:form>

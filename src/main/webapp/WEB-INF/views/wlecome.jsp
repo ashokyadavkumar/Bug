@@ -10,16 +10,23 @@
 <html lang="en">
 
 <body>
-	<p class="text-success">
+<div id="welcomeuser" style="border: 1px solid;
+    height: 348px;
+    margin-left: -5%;
+    padding-top: 135px;background-color: #E0FFFF;">
+	<!-- <p class="text-success">
 		<b>BUG Tracker</b>
-	</p>
+	</p> -->
 	<br />
-	<h5>
+	<div id="data">
+	<h5 style="text-align:center;font-size:35px">
 		Welcome <label class="text-success">${bugUser.firstName}</label>
 	</h5>
-	<h5>
+	<h5 style="text-align:center;font-size:35px">
 		Your role is <label class="text-success">${bugUserRoleName}</label>
 	</h5>
+	</div>
 </body>
+</div>
 
 </html>

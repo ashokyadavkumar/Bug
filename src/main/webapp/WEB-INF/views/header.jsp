@@ -49,7 +49,7 @@ h2 {
 	<header>
 		<div >
 	          <ul class="center">
-	          <h2><span>Bug Tracking System</span></h2>
+	          <h2 style="background-color: #F0F8FF;"><span style="color:red;font-size:26px">Bug Tracking System</span></h2>
 	           
 	          </ul>
 	    </div>

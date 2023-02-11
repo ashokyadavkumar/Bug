@@ -50,7 +50,7 @@
 									         <h3>m|ksx lao/kZu vkSj vkarfjd O;kikj foHkkx</h3>
 									         <span class="hindi"></span>
 									          <h2><span>Department for Promotion of Industry and Internal Trade</span></h2>
-									          <span class="small-txt">Bug Portal</span>
+									          <span class="small-txt">G2b Portal</span>
 									</div>
 								</a>
 							</div>

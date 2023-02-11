@@ -22,9 +22,9 @@
 	<div class="custom-breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active"><a href="#">Home</a></li>
+				<!-- <li class="breadcrumb-item active"><a href="#">Home</a></li> -->
 				<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
-					<ul class="btns float-right">
+					<%-- <ul class="btns float-right">
 						<li>
 							<form action="logout" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
@@ -32,7 +32,7 @@
 									class="logout-btn">
 							</form>
 						</li>
-					</ul>
+					</ul> --%>
 				</div>
 			</ol>
 		</div>
@@ -48,7 +48,7 @@
 								<%@include file="/WEB-INF/views/sideBarManu.jsp"%></div>
 						</div>
 					</div>
-					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7" style="border: 1px solid;background-color: #E0FFFF;margin-left: -16px;">
 						<div class="login-content">
 							<s:form class="create-account" action="searchByDesignation" id="search"
 								name="search" method="post" ondrop="return false"
@@ -57,14 +57,14 @@
 									value="${_csrf.token}" />
 								<div class="mandatory" style="color: red">${msg}</div>
 								<div class="row">
-									<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-										<h2>Find User by Designation</h2>
+									<div  style="margin-top: 23%;margin-left: 17%;">
+										<span style="font-size: 30px;font-weight: bold;color:#96358C">Find User by Designation</span>
 									</div>
 									<div
-										class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-										<label>Select the Designation of User<sup>*</sup></label>
+										class="">
+										<label style="margin-left: 26%;margin-top: 7%;">Select the Designation of User<sup>*</sup></label>
 										<div class="form-group">
-											<select  class="form-control" name="refUserRoleId" id="refUserRoleId">
+											<select  class="form-control" name="refUserRoleId" id="refUserRoleId" style="margin-left: 108%; margin-top: -13%;">
 		          								<option value="0">--Select Here--</option>
 		          								<option value="100">All</option>
 				                        		<c:forEach var="item" items="${userRoleList}">
@@ -77,7 +77,7 @@
 								</div>
 
 								<div class="second-tab-btn float-right">
-									<input type="submit" id="btnSubmited" class="bluebotton"
+									<input style="margin-left: -144%;"type="submit" id="btnSubmited" class="bluebotton"
 										value="search" onclick="return loginFunction1(this.form);" />
 								</div>
 							</s:form>

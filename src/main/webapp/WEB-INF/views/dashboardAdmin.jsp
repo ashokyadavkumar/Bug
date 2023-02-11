@@ -2,8 +2,8 @@
 <div class="custom-breadcrumbs">
   <div class="container">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item active"><a href="#">Home</a></li>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
+			<!-- <li class="breadcrumb-item active"><a href="#">Home</a></li> -->
+			<%-- <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
 				<ul class="btns float-right">
 					<li>
 						<form action="logout" method="post">
@@ -13,7 +13,7 @@
 						</form>
 					</li>
 				</ul>
-			</div>
+			</div> --%>
 		</ol>
 	</div>
 </div>

@@ -8,7 +8,7 @@
 <head>
 <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
 <meta charset="UTF-8">
-<title>Bug Portal</title>
+<title>G2B Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 <link href="${pageContext.request.contextPath}/styles/bootstrap.css" rel="stylesheet" type="text/css">
@@ -84,18 +84,10 @@
 <div class="clearfix"></div>
 <div class="container">
 
-<div class="custom-breadcrumbs">
-  <div class="container">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}">Home</a></li>
-      <li class="breadcrumb-item active"><a href="${pageContext.request.contextPath}/lms">Login</a></li>
-    </ol>
-  </div>
-</div>
 <div class="clearfix"></div>
-<div class="two-form-div">
+<div class="two-form-div" style="background:#FFFFE0;border-top: 10px solid #00FF7F;border-bottom: 10px solid #00FF7F;border-left: 10px solid #00FF7F;border-right: 10px solid #00FF7F;">
 
-<div class="container"> 
+<div class="container" style="margin-left:28%"> 
         
   <s:form class="create-account" action="${pageContext.request.contextPath}/j_spring_security_check" id="home" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off" name="loginup">
            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
@@ -139,8 +131,8 @@
 							            	
 							            	<div class="inarea" id="captchDiv">
 							            	<!-- <img src="images/test.png" height="30" width="90" class="captchaimg" id="captchaImage"/><i class="fas fa-sync-alt" onclick="refreshCaptcha()" title="Refresh Captcha"></i> -->
-							            	<!-- <input type="text" name="captchaResponse" id="captchaResponse" cssClass="captcha" placeholder="Captcha Code" required="required" data-ignorepaste="" /> -->
-							            	<input type="hidden" name="captchaResponse" value="AZCS" id="captchaResponse" cssClass="captcha" placeholder="Captcha Code" />
+							            	<input type="hidden" name="captchaResponse" id="captchaResponse" 
+							            	value="ASXC" />
 												<div class="col-sm-2 col-md-2 col-lg-2 col-xl-3 fields-set float-left">
 							<input type="submit" value="submit" class="login-submit" onclick="return loginFunction1(this.form);"/>
 							

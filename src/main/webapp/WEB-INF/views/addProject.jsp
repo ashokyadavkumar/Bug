@@ -139,9 +139,8 @@
 												<div class="form-group">
 													<select class="form-control" name="status" id="status">
 														<option value="0">--Select Status--</option>
-														<option value="progress">Progress</option>
-														<option value="pending">Pending</option>
-														<option value="finished">Finished</option>
+														<option value="Enable">Enable</option>
+														<option value="Disable">Disable</option>
 													</select>
 												</div>
 											</div>
