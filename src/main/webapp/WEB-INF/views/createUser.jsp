@@ -4,6 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
  <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
+ 
+ 
 <html lang="en">
 <head>
 <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
@@ -103,7 +105,7 @@
 <body>
    
    <div>
-	<div class="two-form-div">
+	<div class="two-form-div" style="">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
