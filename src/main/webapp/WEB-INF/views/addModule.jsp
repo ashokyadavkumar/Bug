@@ -111,81 +111,36 @@
 				<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 					<div class="login-fields">
 						<div class="table-responsive">
-							<%@include file="/WEB-INF/views/sideBarManu.jsp"%></div>
+							<%@include file="/WEB-INF/views/sideBarManuAddmodule.jsp"%></div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
-					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:#E0FFFF">
+					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:white;height:100%">
 					<s:form class="create-account" action="saveMemberCredentialDetails" id="register2" name="register2" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" value="${userId}" name="userId">
-	<div class="user-profile">
+	<div class="user-profile" style="padding-top:10%">
 	<div class="mandatory" style="color: red">${msg}</div>
 		<div
 			class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 user-profile-form border-0" style="margin-left:30%">
 			<div>
 		                        	<div>
-		                            	<span>Enter the Employee Details</span>
+		                            	<span style="margin-left:6%;font-weight: bold">Add Module</span>
 		                            </div>
 		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom" style="margin-top:14px">
-		                                <label style="margin-left:-69px">First Name<sup>*</sup></label>
+		                                <label style="margin-left:-69px">Module Name<sup>*</sup></label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-		                                    <input style="height:20px;width:115%; type="text" class="form-control"  id="firstName" name="firstName" value="${memRegList.firstName}" maxlength="50" data-ignorepaste="" autocomplete="off">
+		                                    <input style="height:20px;;width:115%; type="text" class="form-control"  id="firstName" name="firstName" value="${memRegList.firstName}" maxlength="50" data-ignorepaste="" autocomplete="off">
 		                                </div>
 		                            </div>
 		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-		                                <label style="margin-left:-69px">Last Name</label>
+		                                <label style="margin-left:-69px">Project Name</label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
 		                                    <input style="height:20px;width:115%; type="text" class="form-control"  id="lastName" name="lastName" onkeypress="return onlyAlphabets(event,this);" onkeyup="nospaces(this);" value="${memRegList.lastName}" maxlength="50" data-ignorepaste="" autocomplete="off">
 		                                </div>
 		                            </div>
-		                            <div
-						class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-						<label style="margin-left:-69px">Email Address<sup>*</sup></label>
-						<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-							<input style="height:20px;width:115%; type="text" class="form-control" id="email" name="email"
-								value="${memRegList.email}" data-ignorepaste=""
-								autocomplete="off" maxlength="256">
-						</div>
-					</div>
-								</div>
-			<div>
-
-				<div
-					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-					<label style="margin-left:-69px">Create your User Name<sup>*</sup></label>
-					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:20px;width:115%; type="text" class="form-control" id="userName" name="userName" value="${memRegList.userName}" maxlength="20" data-ignorepaste="" autocomplete="off">
-					</div>
-				</div>
-
-				<div
-					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-					<label style="margin-left:-69px">Create Your Password<sup>*</sup></label>
-					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:20px;width:115%; type="password" class="form-control" id="userPassword" name="userPassword" value="${memRegList.userPassword}" onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
-						
-					</div>
-				</div>
-
-				<div
-					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-					<label style="margin-left:-69px">Re-enter Your Password<sup>*</sup></label>
-					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:20px;width:115%; type="password" class="form-control" id="userPasswrod1" name="" value="${memRegList.userPassword}" onkeyup='check();' onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
-						<span id='message'></span>
-					</div>
-				</div>
-			</div>
-				<div>
-					 <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-		                                <label style="margin-left:-69px">Mobile (+91)<sup>*</sup></label>
-		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-		                                    <input style="height:20px;width:115%; type="text" class="form-control" id="mobile" name="mobile" maxlength="10" value="${memRegList.mobile}" data-ignorepaste="" autocomplete="off"/>
-		                                </div>
-		                            </div>
-		                         <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-		                                <label style="margin-left:-69px">Designation<sup>*</sup></label>
+		               <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
+		                                <label style="margin-left:-69px">Status<sup>*</sup></label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
 											<select style="width:126px;height:20px;padding:0px;" class="form-control" name="refUserRoleId" id="refUserRoleId">
 		          								<option value="0">--Select Here--</option>
@@ -194,23 +149,16 @@
 				                        		</c:forEach>
 		        					  		</select>
 		                                </div>
-		                            </div>  
-		                             <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-		                                <label style="margin-left:-69px">Select Status<sup>*</sup></label>
-		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-											<select style="width:126px;height:20px;padding:0px;" class="form-control" name="status" id="status">
-		          								<option value="0">--Select Status--</option>
-				                        		<option value="Enable">Enable</option>
-				                        		<option value="Disable">Disable</option>
-		        					  		</select>
-		                                </div>
-		                            </div>        
-				</div>
+		                            </div>
+								</div>
+			
+				
 			</div>
-				 <span>Please note that the password should be between 8 and 14 characters and should contain at least one alphabet,one number,one Capital
+				 <span style="visibility: hidden;
+				 ">Please note that the password should be between 8 and 14 characters and should contain at least one alphabet,one number,one Capital
 							letter,one Small letter and a special character(@,#,$,%,_,?,+,-,.)</span>
-			<div class="second-tab-btn float-right" style="margin-top:-68px">
-			<input type="submit" id="btnSubmited" class="bluebotton"  value="Create User" onclick="return loginFunction1(this.form);"/>
+			<div class="second-tab-btn float-right" style="margin-top:-40px;width:52%">
+			<input type="submit" id="btnSubmited" class="bluebotton"  value="Add" onclick="return loginFunction1(this.form);"/>
 		</div>
 	</div>
 </s:form>
