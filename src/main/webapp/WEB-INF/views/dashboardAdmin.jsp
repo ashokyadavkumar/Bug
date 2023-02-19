@@ -30,6 +30,9 @@
 							<c:if test="${(bugUserRoleCode=='03')}">
 							<%@include file="/WEB-INF/views/sideBarManuPl.jsp"%>
 							</c:if>
+							<c:if test="${(bugUserRoleCode=='05')}">
+							<%@include file="/WEB-INF/views/sideBarManuAddmodule.jsp"%>
+							</c:if>
 							</div>
 					</div>
 				</div>

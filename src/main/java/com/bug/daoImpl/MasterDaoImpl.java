@@ -16,6 +16,7 @@ import com.bug.dao.MasterDao;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserDraft;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefCountry;
 import com.bug.model.RefDistrict;
@@ -371,6 +372,60 @@ public class MasterDaoImpl implements MasterDao {
 				session.close();
 		}
 		return project;
+	}
+
+
+	@Override
+	public List<Project> getProjectList() {
+		Session session = sessionFactory.openSession();
+		List<Project> projectList = null;
+		try {
+			projectList = (List<Project>) session.createCriteria(Project.class).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return projectList;
+	}
+
+
+	@Override
+	public Long addModule(CommanBean commanBean) {
+		Session session = sessionFactory.openSession();
+		Long userId = null;
+		Module project = null;
+		if (commanBean.getModuleName() != null && !commanBean.getModuleName().equalsIgnoreCase(""))
+			project = (Module) session.createCriteria(Module.class)
+					.add(Restrictions.or(Restrictions.eq("moduleName", commanBean.getModuleName())))
+					.uniqueResult();
+		if (project != null) {
+			return userId;
+		} else {
+			try {
+				Module module = new Module();
+				module.setModuleName(commanBean.getModuleName());
+					Project project1 = new Project();
+					project1.setId(commanBean.getProjectId());
+					module.setProjectId(project1);
+					module.setStatus(commanBean.getStatus());
+					module.setIsDeleted(false);
+					session.saveOrUpdate(module);
+					userId = module.getId();
+					session.flush();
+				if (module != null)
+					userId = module.getId();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return userId;
+		
+	}
 	}
 
 }

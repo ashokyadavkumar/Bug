@@ -14,7 +14,7 @@
 				<td><a href= "#" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Home</a></td>
 			</tr>
 			<tr>
-				<td><a href="createUser" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Add New Module
+				<td><a href="addModule" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Add New Module
 						</a></td>
 			</tr>
 			<tr>

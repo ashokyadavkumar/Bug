@@ -90,6 +90,44 @@ public class ProjectController {
 		}catch(Exception e){e.printStackTrace();}
 		return "redirect:/dashboardAdmin";
 	}
-
+	@RequestMapping(value = {"/addModule"}, method = RequestMethod.GET)
+	public String addModuleGet(ModelMap model) {
+		try{
+			List<Project> projectList=masterService.getProjectList();
+			model.addAttribute("projectList", projectList);
+		}catch(Exception e){e.printStackTrace();}
+		return "addModule";
+	}
 	
+	@RequestMapping(value = {"/addModule"}, method = RequestMethod.POST)
+	@ResponseStatus(value=HttpStatus.OK)
+	public String addModulePost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request,RedirectAttributes redirectAttributes) {
+		try{
+			Long userId = Long.parseLong(request.getParameter("userId"));
+			userId=masterService.addModule(commanBean);
+			String msg=null;
+			if(userId!= null){
+				msg="Module Added Successfully";
+			}else{
+				msg="Module Added already Have Please Try Another Project";
+			}
+			redirectAttributes.addFlashAttribute("msg", msg);
+		}catch(Exception e){e.printStackTrace();}
+		return "redirect:/dashboardAdmin";
+	}
+	@RequestMapping(value = {"/searchBugByModuleId"}, method = RequestMethod.POST)
+	public String searchBugByModuleIdGet(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
+		try{
+		}catch(Exception e){e.printStackTrace();}
+		return "searchBugByModuleId";
+	}
+	@RequestMapping(value = {"/searchBugByModulePost"}, method = RequestMethod.POST)
+	public String searchBugByModuleIdPost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
+		Project project=null;
+		try{
+			project = masterService.searchByProjectId(commanBean);
+			model.addAttribute("project", project);
+		}catch(Exception e){e.printStackTrace();}
+		return "updateProject";
+	}
 }

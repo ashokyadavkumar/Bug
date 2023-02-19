@@ -41,6 +41,10 @@ public interface MasterService
 
 	public Project updateProjectId(CommanBean commanBean);
 
+	public List<Project> getProjectList();
+
+	public Long addModule(CommanBean commanBean);
+
 
 
 

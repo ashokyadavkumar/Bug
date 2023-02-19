@@ -43,5 +43,9 @@ public interface MasterDao {
 	public Project searchByProjectId(CommanBean commanBean);
 
 	public Project updateProjectId(CommanBean commanBean);
+
+	public List<Project> getProjectList();
+
+	public Long addModule(CommanBean commanBean);
 	
 }

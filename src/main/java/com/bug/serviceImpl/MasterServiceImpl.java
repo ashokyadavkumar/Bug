@@ -104,6 +104,18 @@ public class MasterServiceImpl implements MasterService {
 		return masterDao.updateProjectId(commanBean);
 	}
 
+	@Override
+	public List<Project> getProjectList() {
+		// TODO Auto-generated method stub
+		return masterDao.getProjectList();
+	}
+
+	@Override
+	public Long addModule(CommanBean commanBean) {
+		// TODO Auto-generated method stub
+		return masterDao.addModule(commanBean);
+	}
+
 
 	
 	

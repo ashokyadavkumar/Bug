@@ -2,6 +2,8 @@ package com.bug.bean;
 
 import java.util.Date;
 
+import com.bug.model.Project;
+
 public class CommanBean 
 {
 private String firstName;
@@ -21,6 +23,8 @@ private Long refUserRoleId;
 private String projectName;
 private String clientName;
 private Date projectStartDate;
+private String moduleName;
+private Long projectId;
 public String getFirstName() {
 	return firstName;
 }
@@ -122,6 +126,18 @@ public Date getProjectStartDate() {
 }
 public void setProjectStartDate(Date projectStartDate) {
 	this.projectStartDate = projectStartDate;
+}
+public String getModuleName() {
+	return moduleName;
+}
+public void setModuleName(String moduleName) {
+	this.moduleName = moduleName;
+}
+public Long getProjectId() {
+	return projectId;
+}
+public void setProjectId(Long projectId) {
+	this.projectId = projectId;
 }
 
 
