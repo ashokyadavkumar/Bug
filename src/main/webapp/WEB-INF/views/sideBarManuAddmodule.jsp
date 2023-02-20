@@ -18,14 +18,14 @@
 						</a></td>
 			</tr>
 			<tr>
-				<td><a href="searchByEmail" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">View Bug By Module Id</a></td>
+				<td><a href="searchBugByModuleId" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">View Bug By Module Id</a></td>
 			</tr>
 			<tr>
-				<td><a href="searchById" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change Bug Status to Open</a></td>
+				<td><a href="checkStatusandtryagain" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change Bug Status to Open</a></td>
 			</tr>
 			</tr>
 			<tr>
-				<td><a href="searchByDesignation" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change password</a></td>
+				<td><a href="changePassword" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change password</a></td>
 			</tr>
 
 			<tr>

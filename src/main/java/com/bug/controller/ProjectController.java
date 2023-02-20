@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.bug.bean.CommanBean;
 import com.bug.loginbean.User;
 import com.bug.model.BugUser;
+import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
 import com.bug.service.MasterService;
@@ -115,19 +116,26 @@ public class ProjectController {
 		}catch(Exception e){e.printStackTrace();}
 		return "redirect:/dashboardAdmin";
 	}
-	@RequestMapping(value = {"/searchBugByModuleId"}, method = RequestMethod.POST)
-	public String searchBugByModuleIdGet(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
+	@RequestMapping(value = {"/searchBugByModuleId"}, method = RequestMethod.GET)
+	public String searchBugByModuleIdGet(ModelMap model) {
 		try{
 		}catch(Exception e){e.printStackTrace();}
 		return "searchBugByModuleId";
 	}
 	@RequestMapping(value = {"/searchBugByModulePost"}, method = RequestMethod.POST)
 	public String searchBugByModuleIdPost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
-		Project project=null;
+		List<Module> moduleList=null;
 		try{
-			project = masterService.searchByProjectId(commanBean);
-			model.addAttribute("project", project);
+			moduleList = masterService.searchBugByModuleId(commanBean);
+			model.addAttribute("moduleList", moduleList);
 		}catch(Exception e){e.printStackTrace();}
-		return "updateProject";
+		return "searchBugByModuleId";
+	}
+	
+	@RequestMapping(value = {"/checkStatusandtryagain"}, method = RequestMethod.GET)
+	public String checkStatusandtryagainGet(ModelMap model) {
+		try{
+		}catch(Exception e){e.printStackTrace();}
+		return "checkStatusandtryagain";
 	}
 }

@@ -28,42 +28,25 @@
 </head>
 
 <body>
-<%@include file="/WEB-INF/views/header.jsp" %>
-	<div class="clearfix"></div>
-	<div class="custom-breadcrumbs">
+<div>
+<div class="two-form-div">
 		<div class="container">
-			<ol class="breadcrumb">
-				<c:if test="${roleId == 1}"> <!-- admin user -->
-				<li class="breadcrumb-item"><a href="dashboardAdmin">Home</a></li>
-				<!-- <li class="breadcrumb-item active"><a href="login">Login</a></li> -->
-				</c:if>
-				<c:if test="${roleId == 2}"> <!-- iem user -->
-				<li class="breadcrumb-item"><a href="scrutiny-iem-form">Home</a></li>
-				<!-- <li class="breadcrumb-item active"><a href="login">Login</a></li> -->
-				</c:if>
-				<c:if test="${roleId == 3}"> <!-- il user -->
-				<li class="breadcrumb-item"><a href="scrutiny-il-form">Home</a></li>
-				</c:if>
-				<c:if test="${roleId == 4}"> <!-- user -->
-				<li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-				</c:if>
-			</ol>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-	<div class="container">
-		<div class="two-form-div">
-		<div class="iem-wrap">
-			<div class="container">
-				<div class="register-div">
+			<div class="row">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+					<div class="login-fields">
+						<div class="table-responsive">
+							<%@include file="/WEB-INF/views/sideBarManu.jsp"%></div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:#E0FFFF">
 					<h1>Change Password</h1>
-	<div class="text-danger">${msg}</div>
-					<div id="parentHorizontalTab">
-						<div class="resp-tabs-container hor_1">
+		
 							<s:form theme="simple" 	 name="changePassword" id="changePassword" method="post">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								<input type="hidden" name="userId" value="${userId}" />
-								<div class="col-12 col-sm-12 col-md-12 p-0">
+								<div class="user-profile">
+								<div class="text-danger">${msg}</div>
 									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0">
 										<label>Existing Password<span class="required">*</span></label>
 										<input type="password"  class="form-control" name="password" id="password" data-ignorepaste=""/>

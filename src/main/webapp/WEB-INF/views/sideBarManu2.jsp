@@ -34,7 +34,7 @@
 				<td><a href="searchByDesignation" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Post on Bug</a></td>
 			</tr>
 			<tr>
-				<td><a href="searchByDesignation" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change password</a></td>
+				<td><a href="changePassword" class="forgot-pass float-left" style="color:#4343BB;font-size:17px;text-decoration-line: underline;font-weight: bold ">Change password</a></td>
 			</tr>
 
 			<tr>

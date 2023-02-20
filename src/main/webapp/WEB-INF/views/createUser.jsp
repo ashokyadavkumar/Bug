@@ -213,9 +213,6 @@
 			</div>
 				 <span>Please note that the password should be between 8 and 14 characters and should contain at least one alphabet,one number,one Capital
 							letter,one Small letter and a special character(@,#,$,%,_,?,+,-,.)</span>
-			<!-- <div class="second-tab-btn float-right">
-			<input type="submit" id="btnSubmited" class="bluebotton"  value="Create User" onclick="return loginFunction1(this.form);"/>
-		</div> -->
 	</div>
 </s:form>
 

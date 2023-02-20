@@ -428,4 +428,20 @@ public class MasterDaoImpl implements MasterDao {
 	}
 	}
 
+
+	@Override
+	public List<Module> searchBugByModuleId(CommanBean commanBean) {
+		Session session = sessionFactory.openSession();
+		List<Module> project = null;
+		try {
+			project = (List<Module>) session.createCriteria(Module.class).add(Restrictions.eq("projectId.id", commanBean.getUserId())).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return project;
+	}
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.bug.bean.CommanBean;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
 
@@ -44,6 +45,8 @@ public interface MasterService
 	public List<Project> getProjectList();
 
 	public Long addModule(CommanBean commanBean);
+
+	public List<Module> searchBugByModuleId(CommanBean commanBean);
 
 
 

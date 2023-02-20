@@ -33,7 +33,7 @@ public class Module implements Serializable {
 	@Column(name="module_name")
 	private String moduleName;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="project_id",referencedColumnName="id")
 	private Project projectId;
 	

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bug.bean.CommanBean;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
 
@@ -47,5 +48,7 @@ public interface MasterDao {
 	public List<Project> getProjectList();
 
 	public Long addModule(CommanBean commanBean);
+
+	public List<Module> searchBugByModuleId(CommanBean commanBean);
 	
 }

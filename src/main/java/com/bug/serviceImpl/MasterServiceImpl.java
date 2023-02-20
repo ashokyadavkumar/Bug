@@ -15,6 +15,7 @@ import com.bug.bean.CommanBean;
 import com.bug.dao.MasterDao;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
 import com.bug.service.MasterService;
@@ -114,6 +115,12 @@ public class MasterServiceImpl implements MasterService {
 	public Long addModule(CommanBean commanBean) {
 		// TODO Auto-generated method stub
 		return masterDao.addModule(commanBean);
+	}
+
+	@Override
+	public List<Module> searchBugByModuleId(CommanBean commanBean) {
+		// TODO Auto-generated method stub
+		return masterDao.searchBugByModuleId(commanBean);
 	}
 
 
