@@ -24,6 +24,7 @@ private String projectName;
 private String clientName;
 private Date projectStartDate;
 private String moduleName;
+private Long moduleId;
 private Long projectId;
 public String getFirstName() {
 	return firstName;
@@ -138,6 +139,12 @@ public Long getProjectId() {
 }
 public void setProjectId(Long projectId) {
 	this.projectId = projectId;
+}
+public Long getModuleId() {
+	return moduleId;
+}
+public void setModuleId(Long moduleId) {
+	this.moduleId = moduleId;
 }
 
 
