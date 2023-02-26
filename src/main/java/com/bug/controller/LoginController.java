@@ -274,7 +274,8 @@ public class LoginController {
 		User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("userId",authUser.getUserid());
 		model.addAttribute("roleId",authUser.getRoleid());
-		
+		BugUser bugUser = masterService.getLoggedUser(authUser.getUserid());
+		model.addAttribute("bugUserRoleCode", bugUser.getRefUserRoleId().getRoleCode());
 		return "changePassword";
 	}
 	

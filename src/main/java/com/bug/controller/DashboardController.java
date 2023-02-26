@@ -27,12 +27,12 @@ public class DashboardController {
 		 String msg = (String)model.asMap().get("msg");
 		User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		BugUser bugUser = masterService.getLoggedUser(authUser.getUserid());
-	
+		model.addAttribute("bugUserRoleCode", bugUser.getRefUserRoleId().getRoleCode());
 		model.addAttribute("bugUser", bugUser);
 		
 		model.addAttribute("msg", msg);
 		model.addAttribute("bugUserRoleName", bugUser.getRefUserRoleId().getRoleName());
-		model.addAttribute("bugUserRoleCode", bugUser.getRefUserRoleId().getRoleCode());
+		
 		return "dashboardAdmin";
 	}
 	
