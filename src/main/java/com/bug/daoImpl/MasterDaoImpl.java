@@ -318,7 +318,7 @@ public class MasterDaoImpl implements MasterDao {
 					Project projects = new Project();
 					projects.setProjectName(commanBean.getProjectName());
 					projects.setClientName(commanBean.getClientName());
-					projects.setProjectStartDate(commanBean.getProjectStartDate());
+					projects.setProjectStartDate(new Date());
 					projects.setStatus(commanBean.getStatus());
 					projects.setIsDeleted(false);
 					session.saveOrUpdate(projects);
@@ -343,7 +343,7 @@ public class MasterDaoImpl implements MasterDao {
 		Session session = sessionFactory.openSession();
 		Project project = null;
 		try {
-			project = (Project) session.createCriteria(Project.class).add(Restrictions.eq("id", commanBean.getLoginId())).uniqueResult();
+			project = (Project) session.createCriteria(Project.class).add(Restrictions.eq("id", commanBean.getUserId())).uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

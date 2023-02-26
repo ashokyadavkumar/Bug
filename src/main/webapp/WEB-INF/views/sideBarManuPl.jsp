@@ -20,10 +20,10 @@
 				<td><a href="addProject" class="forgot-pass float-left">Add Project</a></td>
 			</tr>
 			<tr>
-				<td><a href="updateProject" class="forgot-pass float-left">Update Project</a></td>
+				<td><a href="searchProject" class="forgot-pass float-left">Update Project</a></td>
 			</tr>
 			<tr>
-				<td><a href="viewProject" class="forgot-pass float-left">View Project</a></td>
+				<td><a href="showAllProject" class="forgot-pass float-left">View Project</a></td>
 			</tr>
 			<tr>
 				<td><a href="changePassword" class="forgot-pass float-left">Change Password</a></td>

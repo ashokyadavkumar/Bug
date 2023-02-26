@@ -49,9 +49,9 @@
 	function addProject(form) {
 		//alert("hello check")
 		
-		if ($('#projectName').val() == "") {
-			alert("Please enter Project name ")
-			$('#projectName').focus();
+		if ($('#userId').val() == "") {
+			alert("Please enter Project id ")
+			$('#userId').focus();
 			return false;
 		}
 		
@@ -73,12 +73,11 @@
 					</div>
 					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
 						<div class="login-content">
-							<s:form class="create-account" action="saveProject"
+							<s:form class="create-account" action="searchProject"
 								id="register2" name="register2" method="post"
 								ondrop="return false" accept-charset="UTF-8" autocomplete="off">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" />
-								<input type="hidden" value="${userId}" name="userId">
 								<div class="user-profile">
 									<div class="mandatory" style="color: red">${msg}</div>
 									<div
@@ -92,7 +91,7 @@
 											<div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 												<label>Enter Project Id<sup>*</sup></label>
 												<div class="form-group">
-													<input type="text" class="form-control" id="projectName"
+													<input type="text" class="form-control" id="userId"
 														name="userId" value="${memRegList.projectName}"
 														maxlength="20" data-ignorepaste="" autocomplete="off">
 												</div>
@@ -101,7 +100,7 @@
 									</div>
 									<div class="second-tab-btn float-right">
 										<input type="submit" id="btnSubmited" class="bluebotton"
-											value="Add" onclick="return addProject(this.form);" />
+											value="Search" onclick="return addProject(this.form);" />
 									</div>
 								</div>
 							</s:form>

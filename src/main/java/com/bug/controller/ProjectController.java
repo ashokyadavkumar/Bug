@@ -51,7 +51,8 @@ public class ProjectController {
 	}
 	@RequestMapping(value = {"/saveProject"}, method = RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.OK)
-	public String saveProject(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request,RedirectAttributes redirectAttributes) {
+	public String saveProject(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,
+			HttpServletRequest request,RedirectAttributes redirectAttributes) {
 		try{
 			Long userId = Long.parseLong(request.getParameter("userId"));
 			userId=masterService.saveprojectDetails(commanBean);
@@ -72,16 +73,28 @@ public class ProjectController {
 		return "searchProject";
 	}
 	@RequestMapping(value = {"/searchProject"}, method = RequestMethod.POST)
-	public String searchProjectPost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
+	public String searchProjectPost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,
+			RedirectAttributes redirectAttributes,HttpServletRequest request) {
 		Project project=null;
+		String msg=null;
+		String returnReusult=null;
 		try{
 			project = masterService.searchByProjectId(commanBean);
-			model.addAttribute("project", project);
+			if(project!=null){
+				model.addAttribute("project", project);
+				returnReusult="updateProject";
+			}else{
+				msg="Project not there plz try another id";
+				redirectAttributes.addFlashAttribute("msg", msg);
+				returnReusult="redirect:/dashboardAdmin";
+			}
+			
 		}catch(Exception e){e.printStackTrace();}
-		return "updateProject";
+		return returnReusult;
 	}
 	@RequestMapping(value = {"/updateProject"}, method = RequestMethod.POST)
-	public String updateProject(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
+	public String updateProject(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,
+			HttpSession session,BindingResult result,RedirectAttributes redirectAttributes,HttpServletRequest request) {
 		Project project=null;
 		String msg=null;
 		try{
@@ -89,9 +102,19 @@ public class ProjectController {
 			if(project!=null){
 				msg="Project Update Successfully";
 			}
+			redirectAttributes.addFlashAttribute("msg", msg);
 			model.addAttribute("project", project);
 		}catch(Exception e){e.printStackTrace();}
 		return "redirect:/dashboardAdmin";
+	}
+	@RequestMapping(value = {"/showAllProject"}, method = RequestMethod.GET)
+	public String viewAllProject(ModelMap model) {
+		List<Project> projectList=null;
+		try{
+			projectList=masterService.getProjectList();
+			model.addAttribute("projectList", projectList);
+		}catch(Exception e){e.printStackTrace();}
+		return "showAllProject";
 	}
 	@RequestMapping(value = {"/addModule"}, method = RequestMethod.GET)
 	public String addModuleGet(ModelMap model) {
