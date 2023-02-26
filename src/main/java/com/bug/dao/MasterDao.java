@@ -8,8 +8,10 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 
 import com.bug.bean.CommanBean;
+import com.bug.bean.IssueBean;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Issue;
 import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
@@ -50,5 +52,21 @@ public interface MasterDao {
 	public Long addModule(CommanBean commanBean);
 
 	public List<Module> searchBugByModuleId(CommanBean commanBean);
+
+	public List<Module> getAllModule();
+
+	public List<BugUser> getRoleByUser();
+
+	public Long assignModule(CommanBean commanBean);
+
+	public IssueBean getModuleById(IssueBean issueBean);
+
+	public Long saveBug(IssueBean issueBean);
+
+	public List<Issue> getAllIssue();
+
+	public List<Issue> getAllIssueCondition(IssueBean issueBean);
+
+	public Long updateBug(IssueBean issueBean);
 	
 }

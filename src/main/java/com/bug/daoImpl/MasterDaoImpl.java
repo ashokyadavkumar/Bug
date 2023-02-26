@@ -12,10 +12,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bug.bean.CommanBean;
+import com.bug.bean.IssueBean;
 import com.bug.dao.MasterDao;
+import com.bug.model.Assign;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserDraft;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Issue;
 import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefCountry;
@@ -444,4 +447,246 @@ public class MasterDaoImpl implements MasterDao {
 		return project;
 	}
 
+
+	@Override
+	public List<Module> getAllModule() {
+		Session session = sessionFactory.openSession();
+		List<Module> module = null;
+		try {
+			module = (List<Module>) session.createCriteria(Module.class).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return module;
+	}
+
+
+	@Override
+	public List<BugUser> getRoleByUser() {
+		Session session = sessionFactory.openSession();
+		List<BugUser> userList = null;
+		try {
+			userList = (List<BugUser>) session.createCriteria(BugUser.class).add(Restrictions.eq("refUserRoleId.id", 7L)).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return userList;
+	}
+
+
+	@Override
+	public Long assignModule(CommanBean commanBean) {
+		Session session = sessionFactory.openSession();
+		Long userId = null;
+		
+			try {
+				Assign assign = new Assign();
+					Project project1 = new Project();
+					project1.setId(1L);
+					assign.setProjectId(project1);
+					Module module = new Module(); 
+					module.setId(commanBean.getModuleId());
+					BugUser bugUser = new BugUser();
+					bugUser.setId(commanBean.getUserId());
+					assign.setModuleId(module);
+					assign.setUserId(bugUser);
+					assign.setStatus(commanBean.getStatus());
+					assign.setIsDeleted(false);
+					assign.setUpdatedOn(new Date());
+					session.saveOrUpdate(assign);
+					userId = assign.getId();
+					session.flush();
+				if (assign != null)
+					userId = assign.getId();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return userId;
+		}
+
+
+	@Override
+	public IssueBean getModuleById(IssueBean issueBean) {
+		Assign assign = null;
+		Session session = sessionFactory.openSession();
+		IssueBean issue=null;
+		try{
+			assign = (Assign) session.createCriteria(Assign.class)
+					.add(Restrictions.and(Restrictions.eq("moduleId.id", issueBean.getModuleId()),
+							Restrictions.eq("userId.id", issueBean.getUserId())))
+					.uniqueResult();
+			if(assign!=null){
+				issue=new IssueBean();
+				issue.setModuleId(assign.getModuleId().getId());
+				issue.setModuleName(assign.getModuleId().getModuleName());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return issue;
+	}
+
+
+	@Override
+	public Long saveBug(IssueBean issueBean) {
+		Session session = sessionFactory.openSession();
+		Long userId = null;
+		Issue issueValue=null;
+			try {
+				issueValue = (Issue) session.createCriteria(BugUser.class).add(Restrictions.eq("moduleId.id", issueBean.getModuleId())).uniqueResult();
+				if(issueValue!=null){
+					Project project1 = new Project();
+					project1.setId(1L);
+					issueValue.setProjectId(project1);
+					Module module = new Module(); 
+					module.setId(issueBean.getModuleId());
+					issueValue.setModuleId(module);
+					BugUser bugUser = new BugUser();
+					bugUser.setId(issueBean.getUserId());
+					issueValue.setUserId(bugUser);
+					issueValue.setIssueName(issueBean.getIssueName());
+					issueValue.setDescription(issueBean.getDescription());
+					issueValue.setStepstoreProduce(issueBean.getStepstoreProduce());
+					issueValue.setSeverity(issueBean.getSeverity());
+					issueValue.setStatus(issueBean.getStatus());
+					issueValue.setIsDeleted(false);
+					issueValue.setUpdatedOn(new Date());
+					session.saveOrUpdate(issueValue);
+					userId = issueValue.getId();
+					session.flush();
+				}else{
+					Issue issue = new Issue();
+					Project project1 = new Project();
+					project1.setId(1L);
+					issue.setProjectId(project1);
+					Module module = new Module(); 
+					module.setId(issueBean.getModuleId());
+					issue.setModuleId(module);
+					BugUser bugUser = new BugUser();
+					bugUser.setId(issueBean.getUserId());
+					issue.setUserId(bugUser);
+					issue.setIssueName(issueBean.getIssueName());
+					issue.setDescription(issueBean.getDescription());
+					issue.setStepstoreProduce(issueBean.getStepstoreProduce());
+					issue.setSeverity(issueBean.getSeverity());
+					issue.setStatus(issueBean.getStatus());
+					issue.setIsDeleted(false);
+					issue.setUpdatedOn(new Date());
+					session.saveOrUpdate(issue);
+					userId = issue.getId();
+					session.flush();
+				}
+				
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return userId;
+	}
+
+
+	@Override
+	public List<Issue> getAllIssue() {
+		Session session = sessionFactory.openSession();
+		List<Issue> issueValue=null;
+		try{
+			
+			issueValue = (List<Issue>) session.createCriteria(Issue.class).list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return issueValue;
+	}
+
+
+	@Override
+	public List<Issue> getAllIssueCondition(IssueBean issueBean) {
+		Session session = sessionFactory.openSession();
+		List<Issue> issueValue=null;
+		try{
+			if(issueBean.getId()!=null){
+				issueValue = (List<Issue>) session.createCriteria(Issue.class).
+						add(Restrictions.eq("id", issueBean.getId())).list();
+			}else if(issueBean.getSeverity()!=null){
+				issueValue = (List<Issue>) session.createCriteria(Issue.class).
+						add(Restrictions.eq("severity", issueBean.getSeverity())).list();
+			}else if(issueBean.getStatus()!=null){
+				issueValue = (List<Issue>) session.createCriteria(Issue.class).
+						add(Restrictions.eq("status", issueBean.getStatus())).list();
+			}else{
+				
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return issueValue;
+	}
+
+
+	@Override
+	public Long updateBug(IssueBean issueBean) {
+		Session session = sessionFactory.openSession();
+		Long userId = null;
+		Issue issueValue=null;
+			try {
+				issueValue = (Issue) session.createCriteria(BugUser.class).add(Restrictions.eq("id", issueBean.getId())).uniqueResult();
+				if(issueValue!=null){
+					Project project1 = new Project();
+					project1.setId(1L);
+					issueValue.setProjectId(project1);
+					Module module = new Module(); 
+					module.setId(issueBean.getModuleId());
+					issueValue.setModuleId(module);
+					BugUser bugUser = new BugUser();
+					bugUser.setId(issueBean.getUserId());
+					issueValue.setUserId(bugUser);
+					issueValue.setIssueName(issueBean.getIssueName());
+					issueValue.setDescription(issueBean.getDescription());
+					issueValue.setStepstoreProduce(issueBean.getStepstoreProduce());
+					issueValue.setSeverity(issueBean.getSeverity());
+					issueValue.setStatus(issueBean.getStatus());
+					issueValue.setIsDeleted(false);
+					issueValue.setUpdatedOn(new Date());
+					session.saveOrUpdate(issueValue);
+					userId = issueValue.getId();
+					session.flush();
+				}else{
+					
+				}
+				
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return userId;
+	}
+	
 }

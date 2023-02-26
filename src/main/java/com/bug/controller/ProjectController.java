@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.bug.bean.CommanBean;
 import com.bug.loginbean.User;
 import com.bug.model.BugUser;
+import com.bug.model.Issue;
 import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
@@ -124,10 +126,14 @@ public class ProjectController {
 	}
 	@RequestMapping(value = {"/searchBugByModulePost"}, method = RequestMethod.POST)
 	public String searchBugByModuleIdPost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request) {
-		List<Module> moduleList=null;
+		List<Issue> issueList=null;
 		try{
-			moduleList = masterService.searchBugByModuleId(commanBean);
-			model.addAttribute("moduleList", moduleList);
+			issueList=masterService.getAllIssue();
+			User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			BugUser bugUser = masterService.getLoggedUser(authUser.getUserid());
+			model.addAttribute("bugUserRoleCode", bugUser.getRefUserRoleId().getRoleCode());
+			model.addAttribute("issueList", issueList);
+			model.addAttribute("data", "View BUG");
 		}catch(Exception e){e.printStackTrace();}
 		return "searchBugByModuleId";
 	}
@@ -137,5 +143,45 @@ public class ProjectController {
 		try{
 		}catch(Exception e){e.printStackTrace();}
 		return "checkStatusandtryagain";
+	}
+	@RequestMapping(value = {"/viewAllModule"}, method = RequestMethod.GET)
+	public String viewAllModuleGet(ModelMap model) {
+		try{
+			List<Module> moduleList=null;
+				moduleList = masterService.getAllModule();
+				model.addAttribute("moduleList", moduleList);
+		}catch(Exception e){e.printStackTrace();}
+		return "viewAllModule";
+	}
+	
+	@RequestMapping(value = {"/assignModule"}, method = RequestMethod.GET)
+	public String assignModuleGet(ModelMap model) {
+		try{
+			List<Module> moduleList=null;
+				moduleList = masterService.getAllModule();
+				if(moduleList!=null){
+					List<BugUser> bugUserList = masterService.getRoleByUser();
+					model.addAttribute("bugUserList", bugUserList);
+				}
+				model.addAttribute("moduleList", moduleList);
+		}catch(Exception e){e.printStackTrace();}
+		return "assignModule";
+	}
+
+	@RequestMapping(value = {"/assignModule"}, method = RequestMethod.POST)
+	@ResponseStatus(value=HttpStatus.OK)
+	public String assignModulePost(ModelMap model,@ModelAttribute("commanBean") CommanBean commanBean,HttpSession session,BindingResult result,HttpServletRequest request,RedirectAttributes redirectAttributes) {
+		try{
+			Long userId = null;
+			userId=masterService.assignModule(commanBean);
+			String msg=null;
+			if(userId!= null){
+				msg="Assign Module Successfully";
+			}else{
+				msg="Assigned Module already Have Please Try Another Module";
+			}
+			redirectAttributes.addFlashAttribute("msg", msg);
+		}catch(Exception e){e.printStackTrace();}
+		return "redirect:/dashboardAdmin";
 	}
 }
