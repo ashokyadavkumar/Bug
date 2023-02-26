@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bug.bean.CommanBean;
+import com.bug.bean.IssueBean;
 import com.bug.dao.MasterDao;
 import com.bug.model.BugUser;
 import com.bug.model.BugUserPasswordChangeRequest;
+import com.bug.model.Issue;
 import com.bug.model.Module;
 import com.bug.model.Project;
 import com.bug.model.RefUserRole;
@@ -121,6 +123,51 @@ public class MasterServiceImpl implements MasterService {
 	public List<Module> searchBugByModuleId(CommanBean commanBean) {
 		// TODO Auto-generated method stub
 		return masterDao.searchBugByModuleId(commanBean);
+	}
+
+	@Override
+	public List<Module> getAllModule() {
+		return masterDao.getAllModule();
+	}
+
+	@Override
+	public List<BugUser> getRoleByUser() {
+		// TODO Auto-generated method stub
+		return masterDao.getRoleByUser();
+	}
+
+	@Override
+	public Long assignModule(CommanBean commanBean) {
+		// TODO Auto-generated method stub
+		return masterDao.assignModule(commanBean);
+	}
+
+	@Override
+	public IssueBean getModuleById(IssueBean issueBean) {
+		// TODO Auto-generated method stub
+		return masterDao.getModuleById(issueBean);
+	}
+
+	@Override
+	public Long saveBug(IssueBean issueBean) {
+		// TODO Auto-generated method stub
+		return masterDao.saveBug(issueBean);
+	}
+
+	@Override
+	public List<Issue> getAllIssue() {
+		return masterDao.getAllIssue();
+	}
+
+	@Override
+	public List<Issue> getAllIssueCondition(IssueBean issueBean) {
+		return masterDao.getAllIssueCondition(issueBean);
+	}
+
+	@Override
+	public Long updateBug(IssueBean issueBean) {
+		// TODO Auto-generated method stub
+		return masterDao.updateBug(issueBean);
 	}
 
 

@@ -44,7 +44,7 @@
 					<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 						<div class="login-fields">
 							<div class="table-responsive">
-								<%@include file="/WEB-INF/views/sideBarManu2.jsp"%></div>
+								<%@include file="/WEB-INF/views/sideBarManuTester.jsp"%></div>
 						</div>
 					</div>
 					<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7" style="border: 1px solid;background-color: white;margin-left: -16px;"> 

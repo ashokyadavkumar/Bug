@@ -23,78 +23,50 @@
      <%@include file="/WEB-INF/views/header.jsp" %>
 <div class="custom-breadcrumbs">
   <div class="container">
-		<%-- <ol class="breadcrumb">
-			<li class="breadcrumb-item active"><a href="#">Home</a></li>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
-				<ul class="btns float-right">
-					<li>
-						<form action="logout" method="post">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" /> <input type="submit" value="Logout"
-								class="logout-btn">
-						</form>
-					</li>
-				</ul>
-			</div>
-		</ol> --%>
 	</div>
 </div>
-<!-----------------------encrypting of first Div Login password ------------->
 <script type="text/javascript">
 	function loginFunction1(form) {
 		//alert("hello check")
-		var validatePassowrd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,17}$/;
 		
-		if ($('#userName').val() == "") {
-			alert("Please enter user name ")
-			$('#userName').focus();
+		if ($('#moduleId').val() == "") {
+			alert("Please enter module Id ")
+			$('#moduleId').focus();
 			return false;
 		}
 		
-		else if ($('#userPassword').val() == "") {
-			alert("Please enter your password ")
-			$('#userPassword').focus();
-			return false;
-		}
-				
-		else if(!validatePassowrd.test($('#userPassword').val())){
-			alert('Password should be between 8-14 alphanumeric characters & must contain atleast one upper,lower case & a special character');
-			$('#userPassword').focus();
-			return false;
-		}
 		
-        else if ($('#userPasswrod1').val() == "") {
-    		alert("Please re-enter user password ")
-    		$('#userPasswrod1').focus();
+        else if ($('#issueName').val() == "") {
+    		alert("Please enter Bug Name ")
+    		$('#issueName').focus();
     		return false;
     	}
 		
-        else if ($("#userPassword").val() != $("#userPasswrod1").val()) {
-	         alert("Passwords do not match.");
+        else if ($("#description").val() == "") {
+	         alert("Please enter description.");
+	         $('#description').focus();
 	         return false;
 	     }
 		
-		if ($('#refSecurityQuestionId').val() == 0) {
-			alert("Please select any question.");
-			$('#refSecurityQuestionId').focus();
+		if ($('#stepstoreProduce').val() == 0) {
+			alert("Please enter stepstoreProduce.");
+			$('#stepstoreProduce').focus();
 			return false;
 		}
                 
-        else if ($('#securityAnswer').val() == "") {
-			alert("Please enter security answer ")
-			$('#securityAnswer').focus();
+        else if ($('#severity').val() == "") {
+			alert("Please select severity. ")
+			$('#severity').focus();
+			return false;
+		}
+        else if ($('#status').val() == "") {
+			alert("Please select status. ")
+			$('#status').focus();
 			return false;
 		}
 		
         else{
         	
-        	var ps = form.userPassword.value;
-    		var hashObj = new jsSHA("SHA-256","TEXT",{numRounds:parseInt(1,10)});
-    		var encpsPlain = hashObj.update(ps);
-    		var encps = hashObj.getHash("B64");	
-    		$("#userPassword").val(encps);
-    		$("#userPasswrod1").val(encps);
-    		return;
         }
 		
 		
@@ -111,12 +83,12 @@
 				<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 					<div class="login-fields">
 						<div class="table-responsive">
-							<%@include file="/WEB-INF/views/sideBarManu2.jsp"%></div>
+							<%@include file="/WEB-INF/views/sideBarManuTester.jsp"%></div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
 					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:#FFC0CB">
-					<s:form class="create-account" action="saveMemberCredentialDetails" id="register2" name="register2" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off">
+					<s:form class="create-account" action="saveBug" id="register2" name="register2" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" value="${userId}" name="userId">
 	<div class="user-profile">
@@ -125,27 +97,42 @@
 			class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 user-profile-form border-0" style="margin-left:30%">
 			<div>
 		                        	<div>
-		                            	<span style="margin-left:6%;font-weight: bold">Bug Form</span>
+		                            	<span style="margin-left:6%;font-weight: bold">Bug Post</span>
+		                            </div>
+		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom" style="margin-top:14px">
+		                                <label style="margin-left:-69px">Module Id<sup>*</sup></label>
+		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
+		                                    <input type="hidden" class="form-control"  id="moduleId" name="moduleId" value="${issueBean.moduleId}" maxlength="50" data-ignorepaste="" autocomplete="off">
+		                                	<label>${issueBean.moduleId}</label>
+		                                </div>
+		                            </div>
+		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom" style="margin-top:14px">
+		                                <label style="margin-left:-69px">Module Name<sup>*</sup></label>
+		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
+		                                    <input type="text" class="form-control"  id="moduleName" name="moduleName" value="${issueBean.moduleName}" maxlength="50" data-ignorepaste="" autocomplete="off">
+		                                </div>
 		                            </div>
 		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom" style="margin-top:14px">
 		                                <label style="margin-left:-69px">Bug Name<sup>*</sup></label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-		                                    <input style="height:69px;;width:115%; type="text" class="form-control"  id="firstName" name="firstName" value="${memRegList.firstName}" maxlength="50" data-ignorepaste="" autocomplete="off">
+		                                    <input type="text" class="form-control"  id="issueName" name="issueName" value="${issueBean.issueName}" maxlength="50" data-ignorepaste="" autocomplete="off">
 		                                </div>
 		                            </div>
 		                            <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 		                                <label style="margin-left:-69px">Description</label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-		                                    <input style="height:30px;width:115%; type="text" class="form-control"  id="lastName" name="lastName" onkeypress="return onlyAlphabets(event,this);" onkeyup="nospaces(this);" value="${memRegList.lastName}" maxlength="50" data-ignorepaste="" autocomplete="off">
+		                                <textarea rows="5" cols="152" name="description" id="description"  maxlength="2000"></textarea>
+		                                   <%--  <input  type="textarea" class="form-control"  id="lastName" name="lastName" value="${memRegList.lastName}" maxlength="50" data-ignorepaste="" autocomplete="off"> --%>
 		                                </div>
 		                            </div>
 		                            <div
 						class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 						<label style="margin-left:-69px">Steps to Reproduce<sup>*</sup></label>
 						<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-							<input style="height:73px;width:115%; type="text" class="form-control" id="email" name="email"
+						<textarea rows="5" cols="152" name="stepstoreProduce" id="stepstoreProduce"  maxlength="2000"></textarea>
+							<%-- <input style="height:73px;width:115%; type="text" class="form-control" id="email" name="email"
 								value="${memRegList.email}" data-ignorepaste=""
-								autocomplete="off" maxlength="256">
+								autocomplete="off" maxlength="256"> --%>
 						</div>
 					</div>
 								</div>
@@ -157,8 +144,11 @@
 					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 					<label style="margin-left:-69px">Severity<sup>*</sup></label>
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:30px;width:115%; type="password" class="form-control" id="userPassword" name="userPassword" value="${memRegList.userPassword}" onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
-						
+					<select  class="form-control" name="severity" id="severity">
+		          								<option value="0">--Select Here--</option>
+				                        		<option value="Low">Low</option>
+				                        		<option value="Hiegh">Hiegh</option>
+		        					  		</select>						
 					</div>
 				</div>
 
@@ -166,8 +156,12 @@
 					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 					<label style="margin-left:-69px">Status<sup>*</sup></label>
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:30px;width:115%; type="password" class="form-control" id="userPasswrod1" name="" value="${memRegList.userPassword}" onkeyup='check();' onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
-						<span id='message'></span>
+					<select  class="form-control" name="status" id="status">
+		          								<option value="0">--Select Here--</option>
+				                        		<option value="New">New</option>
+				                        		<option value="Open">Open</option>
+				                        		<option value="Close">Close</option>
+		        					  		</select>
 					</div>
 				</div>
 			</div>
@@ -175,28 +169,24 @@
 					 <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 		                                <label style="margin-left:-69px">Author<sup>*</sup></label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-		                                    <input style="height:30px;width:115%; type="text" class="form-control" id="mobile" name="mobile" maxlength="10" value="${memRegList.mobile}" data-ignorepaste="" autocomplete="off"/>
+		                                    <label>${bugUser.firstName}</label>
 		                                </div>
 		                            </div>
-		                         <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
+		                        <%--  <div class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 		                                <label style="margin-left:-69px">Date<sup>*</sup></label>
 		                                <div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-											<select style="width:126px;height:30px;padding:0px;" class="form-control" name="refUserRoleId" id="refUserRoleId">
-		          								<option value="0">--Select Here--</option>
-				                        		<c:forEach var="item" items="${userRoleList}">
-				                        		<option value="${item.id}">${item.roleName}</option>
-				                        		</c:forEach>
-		        					  		</select>
+											
 		                                </div>
-		                            </div>  
+		                            </div>   --%>
 		                                   
 				</div>
 			</div>
 				 <span style="visibility: hidden;
 				 ">Please note that the password should be between 8 and 14 characters and should contain at least one alphabet,one number,one Capital
 							letter,one Small letter and a special character(@,#,$,%,_,?,+,-,.)</span>
-			<div class="second-tab-btn float-right" style="margin-top:-40px;width:52%">
-			<input type="submit" id="btnSubmited" class="bluebotton"  value="Update" onclick="return loginFunction1(this.form);"/>
+							
+			<div class="second-tab-btn float-right" >
+			<input type="submit" id="btnSubmited" class="bluebotton"  value="Post Bug" onclick="return loginFunction1(this.form);"/>
 		</div>
 	</div>
 </s:form>

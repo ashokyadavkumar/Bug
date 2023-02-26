@@ -2,18 +2,6 @@
 <div class="custom-breadcrumbs">
   <div class="container">
 		<ol class="breadcrumb">
-			<!-- <li class="breadcrumb-item active"><a href="#">Home</a></li> -->
-			<%-- <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
-				<ul class="btns float-right">
-					<li>
-						<form action="logout" method="post">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" /> <input type="submit" value="Logout"
-								class="logout-btn">
-						</form>
-					</li>
-				</ul>
-			</div> --%>
 		</ol>
 	</div>
 </div>
@@ -30,8 +18,17 @@
 							<c:if test="${(bugUserRoleCode=='03')}">
 							<%@include file="/WEB-INF/views/sideBarManuPl.jsp"%>
 							</c:if>
-							<c:if test="${(bugUserRoleCode=='05')}">
+							<c:if test="${(bugUserRoleCode=='04')}">
 							<%@include file="/WEB-INF/views/sideBarManuAddmodule.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='05')}">
+							<%@include file="/WEB-INF/views/sideBarManuTestLeader.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='06')}">
+							<%@include file="/WEB-INF/views/sideBarManuDeveplor.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='07')}">
+							<%@include file="/WEB-INF/views/sideBarManuTester.jsp"%>
 							</c:if>
 							</div>
 					</div>

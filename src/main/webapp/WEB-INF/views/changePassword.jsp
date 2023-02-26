@@ -35,7 +35,24 @@
 			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
 					<div class="login-fields">
 						<div class="table-responsive">
-							<%@include file="/WEB-INF/views/sideBarManu.jsp"%></div>
+							<c:if test="${(bugUserRoleCode=='01')}">
+							<%@include file="/WEB-INF/views/sideBarManu.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='03')}">
+							<%@include file="/WEB-INF/views/sideBarManuPl.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='04')}">
+							<%@include file="/WEB-INF/views/sideBarManuAddmodule.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='05')}">
+							<%@include file="/WEB-INF/views/sideBarManuTestLeader.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='06')}">
+							<%@include file="/WEB-INF/views/sideBarManuDeveplor.jsp"%>
+							</c:if>
+							<c:if test="${(bugUserRoleCode=='07')}">
+							<%@include file="/WEB-INF/views/sideBarManuTester.jsp"%>
+							</c:if></div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">

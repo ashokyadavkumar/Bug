@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; 
-charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -77,32 +74,44 @@ charset=ISO-8859-1"
 							</s:form>
 
 							<c:choose>
-								<c:when test="${moduleList.size() >= 1}">
-									<div style="margin-top: 8%">
-										<span style="margin-left: 42%">VIEW BUG</span>
-										<table style="margin-top: 2%">
-											<tr>
-												<th>Module Id</th>
-												<th>BUG Id</th>
-												<th>BUG Name</th>
-												<th>Descriptor</th>
-												<th>Steps to Repro</th>
-												<th>severity</th>
-												<th>Posted By</th>
-												<th>Posted On</th>
-												<th>Status</th>
-											</tr>
-											<c:forEach items="${moduleList}" var="user" varStatus="status"> 
-									<tr>
-									<td>${status.count}</td>
-										<td>${user.projectId.id}</td>
-										<td>${user.id}</td>
-										<td>${user.status}</td>
-										
-									</tr>
-								</c:forEach>
-										</table>
+								<c:when test="${issueList.size() >= 1}">
+								<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 23%;text-align:center">
+										<span style="font-size: 30px;font-weight: bold;color:#96358C">
+										${data}</span>
 									</div>
+									<div >
+					<table class="table tablalign table-bordered" id="example2" class="display" style="width:100%">
+					<thead>
+						<tr>
+						<th>S.No.</th>
+						<th>BUG ID</th>
+						<th>BUG Name</th>
+						<th>Descriptor</th>
+						<th>Steps To Repro</th>
+						<th>Severity</th>
+						<th>Status</th>
+						<th>Author</th>
+						<th>Date</th>
+						</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${issueList}" var="issue" varStatus="count">
+							<tr>
+								<td> ${count.count} </td>
+								<td>${issue.id}</td>
+								<td>${issue.issueName}</td>
+								<td>${issue.description}</td>
+								<td>${issue.stepstoreProduce}</td>
+								<td>${issue.severity}</td>
+								<td>${issue.status}</td>
+								<td>${issue.userId.firstName}</td>
+								<td><fmt:formatDate value="${issue.updatedOn}" pattern="dd/MM/yyyy"/></td>
+								
+							</tr>
+							</c:forEach>
+						</tbody>
+						</table>
+						</div>
 								</c:when>
 								<c:otherwise>
 

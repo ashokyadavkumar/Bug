@@ -24,20 +24,6 @@
      <%@include file="/WEB-INF/views/header.jsp" %>
 <div class="custom-breadcrumbs">
   <div class="container">
-		<%-- <ol class="breadcrumb">
-			<li class="breadcrumb-item active"><a href="#">Home</a></li>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right-part">
-				<ul class="btns float-right">
-					<li>
-						<form action="logout" method="post">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" /> <input type="submit" value="Logout"
-								class="logout-btn">
-						</form>
-					</li>
-				</ul>
-			</div>
-		</ol> --%>
 	</div>
 </div>
 <!-----------------------encrypting of first Div Login password ------------->
@@ -250,7 +236,6 @@
 
 </script>
 
-<!-- Started code by kapil makhan -->
 <script type="text/javascript">
 
 var check = function() {
