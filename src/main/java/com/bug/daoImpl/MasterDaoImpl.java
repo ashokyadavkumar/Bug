@@ -546,8 +546,8 @@ public class MasterDaoImpl implements MasterDao {
 		Long userId = null;
 		Issue issueValue=null;
 			try {
-				issueValue = (Issue) session.createCriteria(BugUser.class).add(Restrictions.eq("moduleId.id", issueBean.getModuleId())).uniqueResult();
-				if(issueValue!=null){
+				//issueValue = (Issue) session.createCriteria(BugUser.class).add(Restrictions.eq("moduleId.id", issueBean.getModuleId())).uniqueResult();
+			/*	if(issueValue!=null){
 					Project project1 = new Project();
 					project1.setId(1L);
 					issueValue.setProjectId(project1);
@@ -567,7 +567,7 @@ public class MasterDaoImpl implements MasterDao {
 					session.saveOrUpdate(issueValue);
 					userId = issueValue.getId();
 					session.flush();
-				}else{
+				}else{*/
 					Issue issue = new Issue();
 					Project project1 = new Project();
 					project1.setId(1L);
@@ -588,7 +588,7 @@ public class MasterDaoImpl implements MasterDao {
 					session.saveOrUpdate(issue);
 					userId = issue.getId();
 					session.flush();
-				}
+				//}
 				
 
 			} catch (Exception e) {
@@ -654,17 +654,11 @@ public class MasterDaoImpl implements MasterDao {
 		Long userId = null;
 		Issue issueValue=null;
 			try {
-				issueValue = (Issue) session.createCriteria(BugUser.class).add(Restrictions.eq("id", issueBean.getId())).uniqueResult();
+				issueValue = (Issue) session.createCriteria(Issue.class).add(Restrictions.eq("id", issueBean.getId())).uniqueResult();
 				if(issueValue!=null){
-					Project project1 = new Project();
-					project1.setId(1L);
-					issueValue.setProjectId(project1);
-					Module module = new Module(); 
-					module.setId(issueBean.getModuleId());
-					issueValue.setModuleId(module);
-					BugUser bugUser = new BugUser();
-					bugUser.setId(issueBean.getUserId());
-					issueValue.setUserId(bugUser);
+					issueValue.setProjectId(issueValue.getProjectId());
+					issueValue.setModuleId(issueValue.getModuleId());
+					issueValue.setUserId(issueValue.getUserId());
 					issueValue.setIssueName(issueBean.getIssueName());
 					issueValue.setDescription(issueBean.getDescription());
 					issueValue.setStepstoreProduce(issueBean.getStepstoreProduce());

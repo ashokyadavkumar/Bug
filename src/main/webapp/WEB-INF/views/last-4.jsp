@@ -29,9 +29,9 @@
 	function loginFunction1(form) {
 		//alert("hello check")
 		
-		if ($('#moduleId').val() == "") {
+		if ($('#moduleId1').val() == "") {
 			alert("Please enter module Id ")
-			$('#moduleId').focus();
+			$('#moduleId1').focus();
 			return false;
 		}
 		
@@ -93,9 +93,8 @@
 				</div>
 				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
 					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:#FFC0CB">
-					<s:form class="create-account" action="saveBug" id="register2" name="register2" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off">
+					<s:form class="create-account" action="updateBug" id="register2" name="register2" method="post"  ondrop="return false" accept-charset="UTF-8"  autocomplete="off">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<input type="hidden" value="${userId}" name="userId">
 	<div class="user-profile">
 	<div class="mandatory" style="color: red">${msg}</div>
 		<div
@@ -154,7 +153,7 @@
 					<select  class="form-control" name="severity" id="severity">
 		          								<option value="0">--Select Here--</option>
 				                        		<option value="Low">Low</option>
-				                        		<option value="Hiegh">Hiegh</option>
+				                        		<option value="Hiegh">Heigh</option>
 		        					  		</select>						
 					</div>
 				</div>
@@ -165,8 +164,9 @@
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
 					<select  class="form-control" name="status" id="status">
 		          								<option value="0">--Select Here--</option>
-				                        		<option value="New">New</option>
-				                        		<option value="Old">Old</option>
+				                        		<option value="Inprogress">Inprogress</option>
+				                        		<option value="Open">Open</option>
+				                        		<option value="Close">Close</option>
 		        					  		</select>
 					</div>
 				</div>

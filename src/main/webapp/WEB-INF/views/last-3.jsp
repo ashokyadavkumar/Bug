@@ -147,7 +147,7 @@
 					<select  class="form-control" name="severity" id="severity">
 		          								<option value="0">--Select Here--</option>
 				                        		<option value="Low">Low</option>
-				                        		<option value="Hiegh">Hiegh</option>
+				                        		<option value="Hiegh">Heigh</option>
 		        					  		</select>						
 					</div>
 				</div>
