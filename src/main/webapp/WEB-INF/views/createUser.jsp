@@ -150,7 +150,7 @@
 					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 					<label style="margin-left:-69px">Create Your Password<sup>*</sup></label>
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:20px;width:115%; type="password" class="form-control" id="userPassword" name="userPassword" value="${memRegList.userPassword}" onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
+						<input style="height:20px;width:115%;  class="form-control" id="userPassword" name="userPassword" type="password" value="${memRegList.userPassword}" onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
 						
 					</div>
 				</div>
@@ -159,7 +159,7 @@
 					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
 					<label style="margin-left:-69px">Re-enter Your Password<sup>*</sup></label>
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
-						<input style="height:20px;width:115%; type="password" class="form-control" id="userPasswrod1" name="" value="${memRegList.userPassword}" onkeyup='check();' onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
+						<input style="height:20px;width:115%;  class="form-control" id="userPasswrod1" name="" value="${memRegList.userPassword}" type="password" onkeyup='check();' onkeyup="nospaces(this);" data-ignorepaste="" autocomplete="off" maxlength="14">
 						<span id='message'></span>
 					</div>
 				</div>

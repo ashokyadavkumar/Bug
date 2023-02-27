@@ -8,12 +8,33 @@
 
 <!doctype HTML>
 <html lang="en">
+<style type="text/css"> 
 
-<body>
-<div id="welcomeuser" style="border: 1px solid;
+<c:choose>
+  <c:when test="${bugUserRoleName.equals('Tester')}">
+#welcomeuser{
+	border: 1px solid;
+    height: 393px;
+    margin-left: -5%;
+    padding-top: 135px;
+    background-color: #E0FFFF;
+    } 
+ </c:when>
+ <c:when test="${bugUserRoleName.equals('admin')}">
+#welcomeuser{
+	border: 1px solid;
     height: 348px;
     margin-left: -5%;
-    padding-top: 135px;background-color: #E0FFFF;">
+    padding-top: 135px;
+    background-color: #E0FFFF;
+    } 
+ </c:when>
+ </c:choose>
+</style>
+ 
+
+<body>
+<div id="welcomeuser">
 	<!-- <p class="text-success">
 		<b>BUG Tracker</b>
 	</p> -->

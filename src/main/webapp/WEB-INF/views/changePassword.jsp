@@ -56,23 +56,23 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
-					<div class="login-content" style="border: 1px solid; margin-left: -31px;background-color:#E0FFFF">
-					<h1>Change Password</h1>
+					<div class="login-content" style="border: 1px solid; margin-left:-5%;height:96%;background-color:#E0FFFF">
+					<h4 style="text-align:center;padding-top: 24px">Change Password</h4>
 		
-							<s:form theme="simple" 	 name="changePassword" id="changePassword" method="post">
+							<s:form theme="simple" 	 name="changePassword" id="changePassword" method="post" style="margin-left:37%;margin-top:19px;text-align:center;">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								<input type="hidden" name="userId" value="${userId}" />
 								<div class="user-profile">
 								<div class="text-danger">${msg}</div>
 									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0">
 										<label>Existing Password<span class="required">*</span></label>
-										<input type="password"  class="form-control" name="password" id="password" data-ignorepaste=""/>
+										<input type="password" style="margin-top:5px" class="form-control" name="password" id="password" data-ignorepaste=""/>
 									</div>
-									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0">
+									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0" style="margin-top:10px;">
 										<label>New Password<span class="required">*</span></label>
 										<input type="password"  class="form-control" name="newPassword" id="newPassword" maxlength="14" data-ignorepaste=""/>
 									</div>
-									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0">
+									<div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0" style="margin-top:10px;">
 										<label>Re-Type New Password<span class="required">*</span></label>
 										<input type="password"  class="form-control" name="reTypeNewPassword" id="reTypeNewPassword" maxlength="14" data-ignorepaste=""/>
 									</div>
@@ -81,7 +81,7 @@
 							letter, one Small letter and a special character (@,#,$,%,_,?,+,-,.)</span>
 									</div>
 									<div class="col-12 col-sm-12 col-md-12 form-group p-0 text-center">
-										<input type="submit" id="savebutton"  name="savebutton" value="Change Password" class="bluebotton float-right" />
+										<input type="submit" style="margin-top:-20%;margin-right:6%" id="savebutton"  name="savebutton" value="Change Password" class="bluebotton float-right" />
 									<!-- <input type="submit" id="cancelbutton" name="cancelbutton" value="Cancel" class="bluebotton float-right" /> -->
 									</div>
 								</div>

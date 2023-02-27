@@ -57,8 +57,8 @@
 										<span style="font-size: 30px;font-weight: bold;color:#96358C">View BUG By severity</span>
 									</div>
 									<div
-					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom">
-					<label style="margin-left:-69px">Severity<sup>*</sup></label>
+					class="col-12  col-sm-4 col-md-4 col-lg-4 col-xl-4 margin-10-bottom" style="margin-left:24%;margin-top:4%">
+					<label style="margin-left:6px">Severity<sup>*</sup></label>
 					<div class="form-group" style="margin-top: -13%;margin-left: 40%;">
 					<select  class="form-control" name="severity" id="severity">
 		          								<option value="0">--Select Here--</option>
