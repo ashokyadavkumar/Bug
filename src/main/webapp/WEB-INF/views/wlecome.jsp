@@ -29,12 +29,25 @@
     background-color: #E0FFFF;
     } 
  </c:when>
+  <c:when test="${bugUserRoleName.equals('Project Leader') || bugUserRoleName.equals('Module Leader') || bugUserRoleName.equals('Test Leader') || bugUserRoleName.equals('Developer')}">
+#welcomeuser{
+	border: 1px solid;
+    height: 328px;
+    margin-left: -5%;
+    padding-top: 135px;
+    background-color: #E0FFFF;
+    } 
+ </c:when>
  </c:choose>
 </style>
  
 
 <body>
-<div id="welcomeuser">
+<div id="welcomeuser" border: 1px solid;
+    height: 393px;
+    margin-left: -5%;
+    padding-top: 135px;
+    background-color: #E0FFFF;>
 	<!-- <p class="text-success">
 		<b>BUG Tracker</b>
 	</p> -->
